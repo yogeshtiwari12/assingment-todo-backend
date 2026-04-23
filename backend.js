@@ -29,7 +29,7 @@ app.use(express.json());
 
 
 app.use(cors({
-    origin: "hhttps://assingment-todo-frontend.vercel.app",
+    origin: "https://assingment-todo-frontend.vercel.app",
     credentials: true,
 }))
 
