@@ -51,7 +51,13 @@ export const login = async (req, res) => {
                     { expiresIn: "1h" }
                 );
 
-                res.cookie("token", token, { httpOnly: true });
+                  res.cookie('token', token,{
+                    secure: true, // Set to true since Render uses HTTPS
+                    sameSite: 'None', // Allows cross-site cookies with HTTPS
+                    httpOnly: true,
+                    secure: true, // Render uses HTTPS
+                    sameSite: 'None',
+                    })
 
                 return res.status(200).json({ message: "Login successful" });   
             
