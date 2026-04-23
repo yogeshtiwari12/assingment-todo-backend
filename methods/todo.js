@@ -22,7 +22,7 @@ export const createTodo = async (req, res) => {
 
 export const getTodos = async (req, res) => {
 	try {
-		const todos = await Todo.find({ userId: "69ea6fb229858f344bcecb2d" }).sort({ createdAt: -1 });
+		const todos = await Todo.find({ userId: req.user._id }).sort({ createdAt: -1 });
 		return res.status(200).json({ todos });
 	} catch (error) {
 		return res.status(500).json({ error: error.message });
